@@ -1,0 +1,238 @@
+{% extends "base.html" %}
+
+{% block title %}{{line}}, {{memory}}, {{color}}{% endblock %}
+{% block body %}
+
+<div class="top-location">
+    <a href="/">Главная</a>
+    <a href="/catalog">Каталог</a>
+    <a href="javascript:window.location.href = String('http://'+location.host+'/catalog/'+'{{category}}')">{{header}}</a>
+    <p>{{line}}, {{memory}}, {{color}}</p>
+</div>
+
+<main class="product-page-grid">
+    <section class="pimg">
+        <img class="" src="/static/images/products/{{photo}}.png">
+    </section>
+    <section class="pinfo">
+        <h1>Телефон Apple {{line}}, {{memory}}, {{color}}</h1>
+        <p>Арт. 00000000</p>
+        <hr>
+        <div class="prop-item">
+            <div class="prop-item-title"><h2>Цвет</h2></div>
+            <div class="prop-items">
+                {% for i in colors %}
+                {% if i == color %}
+                    <button class="currnet-button-choose" id="current-color">{{i}}</button>
+                {% else %}
+                    <button class="button-choose" parametr="color">{{i}}</button>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="prop-item">
+            <div class="prop-item-title"><h2>Внутренняя память</h2></div>
+            <div class="prop-items">
+                {% for i in memorys %}
+                {% if i == memory %}
+                    <button class="currnet-button-choose" id="current-memory">{{i}}</button>
+                {% else %}
+                    <button class="button-choose" parametr="memory">{{i}}</button>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <section class="pbuy">
+        <div class="pbuy-wrap">
+            <div class="pbuy-price">
+            <p>Цена</p>
+            <h1>{{price}} BYN</h1>
+        </div>
+        <button class="add-to-cart">Купить</button>
+            <div class="availability">
+                <svg class="icon-in-availability" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15.142 9.98299L10.875 14.25L9.42049 12.7955M12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3Z" stroke="#48dc6c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <p>В наличии</p>
+            </div>
+        </div>
+    </section>
+    <section class="pchar">
+
+        <h1>Характеристики Apple {{line}}, {{memory}}, {{color}}</h1>
+        <hr>
+        <div class="parametr">
+            <h2>Тип продукта</h2>
+            <p>iPhone</p>
+        </div>
+        <hr>
+        <div class="parametr">
+            <h2>Цвет</h2>
+            <p>iPhone</p>
+        </div>
+        <hr>
+
+        <!---->
+        <h1>Процессор</h1>
+        <hr>
+        <div class="parametr">
+            <h2>Процессор</h2>
+            <p>iPhone</p>
+        </div>
+        <hr>
+        <div class="parametr">
+            <h2>Количество ядер</h2>
+            <p>iPhone</p>
+        </div>
+        <hr>
+
+        <!---->
+        <h1>Дисплей</h1>
+        <hr>
+        <div class="parametr">
+            <h2>Размер дисплея</h2>
+            <p>iPhone</p>
+        </div>
+        <hr>
+        <div class="parametr">
+            <h2>Разрешение экрана</h2>
+            <p>iPhone</p>
+        </div>
+        <hr>
+        <div class="parametr">
+            <h2>Технология дисплея</h2>
+            <p>iPhone</p>
+        </div>
+        <hr>
+
+        <!---->
+        <h1>Память</h1>
+        <hr>
+        <div class="parametr">
+            <h2>Внутренняя память</h2>
+            <p>iPhone</p>
+        </div>
+        <hr>
+        <div class="parametr">
+            <h2>Оперативная память</h2>
+            <p>iPhone</p>
+        </div>
+        <hr>
+
+        <!---->
+        <h1>Батарея</h1>
+        <hr>
+        <div class="parametr">
+            <h2>Технология аккумулятора</h2>
+            <p>iPhone</p>
+        </div>
+        <hr>
+        <div class="parametr">
+            <h2>Емкость батареи</h2>
+            <p>iPhone</p>
+        </div>
+        <hr>
+        <div class="parametr">
+            <h2>Время проигрывания видео</h2>
+            <p>iPhone</p>
+        </div>
+        <hr>
+    </section>
+</main>
+
+
+
+
+<!--
+<section class="product-page-grid">
+ 
+    <div class="images">
+        <img class="main-product-image" src="/static/images/products/{{photo}}.png">
+    </div>
+
+    <nav class="product-info">
+        <h1>Телефон Apple {{line}}, {{memory}}, {{color}}</h1>
+        <div class="choose-flex">
+            <h1>Цвет</h1>
+            {% for i in colors %}
+                {% if i == color %}
+                    
+                    <button class="currnet-button-choose" id="current-color">{{i}}</button>
+                {% else %}
+                    <button class="button-choose" parametr="color">{{i}}</button>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="choose-flex">
+            <h1>Внутренняя память:</h1>
+            {% for i in memorys %}
+                {% if i == memory %}
+                    
+                    <button class="currnet-button-choose" id="current-memory">{{i}}</button>
+                {% else %}
+                    <button class="button-choose" parametr="memory">{{i}}</button>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </nav>
+    <nav class="characteristics">
+            <div class="characteristics-module">
+                <h1>Технические характеристики</h1>
+                <div class="characteristics-flex">
+                    <p>Тип продукта</p>
+                    <p>параметр</p>
+                </div>
+                <div class="characteristics-flex">
+                    <p>Цвет</p>
+                    <p>параметр</p>
+                </div>
+            </div>
+            <div class="characteristics-module">
+                <h1>Дисплей</h1>
+                <div class="characteristics-flex">
+                    <p>Размер</p>
+                    <p>параметр</p>
+                </div>
+                <div class="characteristics-flex">
+                    <p>Разрешение</p>
+                    <p>параметр</p>
+                </div>
+                <div class="characteristics-flex">
+                    <p>Технология</p>
+                    <p>параметр</p>
+                </div>
+            </div>
+            <div class="characteristics-module">
+                <h1>Память</h1>
+                <div class="characteristics-flex">
+                    <p>Внутренняя память</p>
+                    <p>параметр</p>
+                </div>
+                <div class="characteristics-flex">
+                    <p>Оперативная память</p>
+                    <p>параметр</p>
+                </div>
+            </div>
+            <div class="characteristics-module">
+                <h1>Батарея</h1>
+                <div class="characteristics-flex">
+                    <p>Технология</p>
+                    <p>параметр</p>
+                </div>
+                <div class="characteristics-flex">
+                    <p>Емкость</p>
+                    <p>параметр</p>
+                </div>
+                <div class="characteristics-flex">
+                    <p>Время работы</p>
+                    <p>параметр</p>
+                </div>
+            </div>
+        </nav>
+        
+</section>-->
+<script src="/static/scripts/get_product_choose_id.js"></script>
+<div style="display: none;" class="js-ninja-info-category">{{category}}</div>
+<div style="display: none;" class="js-ninja-info-line">{{line}}</div>
+{% endblock %}

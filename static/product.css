@@ -1,0 +1,131 @@
+hr{
+    color: #222228;
+    opacity: 0.48;
+    border: 0;
+    border-bottom: 1px solid #222228;
+}
+
+.pimg{
+    grid-area: pimg;
+    aspect-ratio: 1 / 1;
+    max-width: 100%;
+    margin: 1rem;
+    padding: 1rem;    
+}
+.pinfo{
+    grid-area: pinfo;
+    max-width: 100%;
+    margin: 1rem;
+    padding: 1rem;    
+}
+.pbuy{
+    grid-area: pbuy;
+    width: 100%;   
+}
+.pchar{
+    grid-area: pchar;
+}
+.pchar h1{
+    margin-top: 3rem;
+    font-size: 2rem;
+}
+.pinfo h1{
+    font-size: 2rem;
+}
+.pinfo p{
+    color: #222228;
+    opacity: 0.48;
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.pbuy-wrap{
+    padding: 1rem;
+    border: 1px solid #2222281b;
+    border-radius: 0.8rem;
+}
+.pbuy-wrap p{
+    font-size: 1.5rem;
+}
+.pbuy-price p{
+    opacity: 0.48;
+}
+.pbuy-wrap h1{
+    font-size: 2rem;
+}
+.prop-items{
+    display: flex;
+    flex-wrap: wrap;
+}
+.prop-items button{
+    margin: 0.5rem;
+    border: 0;
+    border-radius: 0.5rem;
+    background-color: white;
+    border: 1px solid #2222281b;
+    font-weight: 500;
+}
+.currnet-button-choose{
+    border: 1px solid #222228 !important;
+}
+.pbuy button{
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.parametr{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: safe;
+    align-items: center;
+    justify-content: space-between;
+}
+.parametr p{
+    color: #222228;
+    font-size: 1.2rem;
+}
+.parametr h2{
+    color: #222228;
+    opacity: 0.48;
+    font-size: 1.2rem;
+}
+
+@media (min-width: 1200px) {
+    /*>1200px*/
+    .product-page-grid{
+        gap: 1rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas: 
+        "pimg pinfo pbuy"
+        "pimg pinfo pbuy"
+        "pchar pchar .";
+    }
+}
+@media (min-width: 700px) and (max-width: 1200px) {
+    /* 700-1200px */
+    .product-page-grid{
+        gap: 1rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr ;
+        grid-template-areas: 
+        "pimg pbuy"
+        "pimg pbuy"
+        "pinfo pinfo"
+        "pchar pchar";
+    }
+}
+@media (max-width: 700px) {
+    /* 0-700px */
+    .product-page-grid{
+        gap: 1rem;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "pimg"
+        "pinfo"
+        "pbuy"
+        "pchar";
+    }
+}

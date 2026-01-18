@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block body %}
+<section class="main-image-section">
+    <img src="/static/images/main_page/iphone17pro_poster.png">
+    <img src="/static/images/main_page/ipadproposter.jpg">
+    <img src="/static/images/main_page/macbookproposter.png">
+    <img src="/static/images/main_page/iphone16proposter.jpeg">
+    <img src="/static/images/main_page/applewatch_poster.jpg">
+</section>
+
+<h1 class="section-header">Популярные категории</h1>
+<section class="popular-categories">
+    <div class="pc-button-icon js-button-to-page" jslink="/catalog/iphone">
+        <img class="pc-button-img" src="/static/images/main_page/iphones17.png">
+        <p>iPhone</p>
+    </div>
+    <div class="pc-button-icon js-button-to-page" jslink="">
+        <img class="pc-button-img" src="/static/images/main_page/airpods.png">
+        <p>AirPods</p>
+    </div>
+    <div class="pc-button-icon js-button-to-page" jslink="">
+        <img class="pc-button-img" src="/static/images/main_page/iphones17.jpg">
+        <p>Mac</p>
+    </div>
+    <div class="pc-button-icon js-button-to-page" jslink="">
+        <img class="pc-button-img" src="/static/images/main_page/iphones17.jpg">
+        <p>Apple Watch</p>
+    </div>
+    <div class="pc-button-icon js-button-to-page" jslink="">
+        <img class="pc-button-img" src="/static/images/main_page/iphones17.jpg">
+        <p>iPad</p>
+    </div>
+</section>
+
+<script src="/static/scripts/imagecarousel.js"></script>
+{% endblock %}

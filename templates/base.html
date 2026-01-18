@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="/static/images/icons/image-placeholder.svg" type="image/x-icon">
+    <link rel="stylesheet" href="/static/base.css">
+    <link rel="stylesheet" href="/static/product.css">
+
+    <title>{% block title %}{% endblock %} Название Компании</title>
+
+    <script src="/static/jquery/jquery.js"></script>
+    <script src="/static/jquery/jquery-ui.js"></script>
+    <script src="/static/jquery/socketio.js"></script>
+
+    <script src="/static/scripts/base.js"></script>
+</head>
+<body>
+
+    <section class="top-header">
+        <a href="">Информация</a>
+        <a href="">Гарантия</a>
+        <a href="">Бонусная программа</a>
+        <a href="">+888 88 888-88-88</a>
+    </section>
+    
+    <section class="second-header">
+        <div class="logo">
+            <img class="img-logo" alt="logo" src="/static/images/icons/image-placeholder.svg">
+            <h1>Название Компании</h1>
+        </div>
+        <input class="catalog-search" placeholder="Поиск в каталоге">
+        <div class="button-with-icon" id="cart">
+            <img class="logo-cart" alt="logo-cart" src="/static/images/icons/cart.svg">
+            <p>Корзина</p>
+        </div>
+        <div class="button-with-icon" id="top-menu-profile">
+            <img class="logo-cart" alt="logo-cart" src="/static/images/icons/user-profile.svg">
+            <p>Профиль</p>
+        </div>
+        <div class="button-with-icon" id="burger-menu">
+            <img class="logo-cart" alt="logo-cart" src="/static/images/icons/burger-menu.svg">
+            <p>Меню</p>
+        </div>
+    </section>
+
+    <section class="catalogs-line">
+        <a href="/catalog/iphone">iPhone</a>
+        <a href="">Mac</a>
+        <a href="">iPad</a>
+        <a href="">AirPods</a>
+        <a href="">Apple Watch</a>
+        <a href="">Аксессуары</a>
+    </section>
+
+    <section class="template-body">
+        {% block body %}
+        {% endblock %}
+    </section>
+
+    <section class="footer">
+            <p>Общество с ограниченной ответственностью
+            «Название Компании» Свидетельство № 123456789,
+            выдано 05.03.2024 Минским горисполкомом УНП 123456789</p>
+            <p>220000, Республика Беларусь, г. Миснк, ул. Оавьйцуе, д.8, пом. 8, комн. 8</p>
+            <p>Интернет-магазин</p>
+            <p>Тел. бухгалтерии: +888 88 888-88-88</p> 
+            <p>Тел. интернет-магазина: +888 88 888-88-88</p>
+            <p>Дата регистрации в Торговом реестре Республики Беларусь: 00.00.0000</p> 
+            <p>© 2009-2026. ООО «Название Компании» УНП: 123456789. Все права защищены.</p>
+    </section>
+
+    <section class="side-menu">
+        <img class="sm-img js-close-sm" alt="logo" src="/static/images/icons/x-icon.svg">
+        <div class="sm-button">
+            <img class="sm-img" alt="logo" src="/static/images/icons/image-placeholder.svg">
+            <h1>Название Компании</h1>
+        </div>
+        <div class="sm-button">
+            <img class="sm-img" alt="logo-cart" src="/static/images/icons/cart.svg">
+            <p>Корзина</p>
+        </div>
+        <div class="sm-button">
+            <img class="sm-img" alt="logo-cart" src="/static/images/icons/user-profile.svg">
+            <p>Профиль</p>
+        </div>
+    </section>
+</body>
+</html>
