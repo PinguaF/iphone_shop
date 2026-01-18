@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Регистрация{% endblock %}
+{% block body %}
+
+<form action="" method="get" class="form">
+    <div class="form-block">
+        <label for="firstname">Имя</label>
+        <input type="text" name="firstname" id="firstname" required />
+    </div>
+    <div class="form-block">
+        <label for="surname">Фамилия</label>
+        <input type="text" name="surname" id="surname" required />
+    </div>
+    <div class="form-block">
+        <label for="email">Почта</label>
+        <input type="email" name="email" id="email" required />
+    </div>
+    <div class="form-block">
+        <label for="password">Пароль</label>
+        <input type="password" name="password" id="password" required />
+    </div>
+    <div class="form-block">
+        <input type="submit" value="Зарегестрироваться" />
+    </div>
+</form>
+{% endblock %}

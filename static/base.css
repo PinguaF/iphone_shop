@@ -463,5 +463,18 @@ button:hover{
     opacity: 1 !important;
 }
 
-
+form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    flex-direction: column;
+    font-size: 1.5rem;
+}
+.form-block{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
 

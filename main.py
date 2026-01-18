@@ -24,6 +24,23 @@ def load_user(user_id):
 def main():
     return render_template("main.html")
 
+@app.route("/profile", methods=["POST", "GET"])
+@login_required
+def profile():
+    return render_template("auth/profile.html")
+
+@app.route("/register", methods=["POST", "GET"])
+def register():
+    return render_template("auth/register.html")
+
+@app.route("/auth", methods=["POST", "GET"])
+def auth():
+    return render_template("auth/auth.html")
+
+@app.errorhandler(401)
+def error_handler(error):
+    return redirect(url_for('register'))
+
 @app.route("/catalog/<category>/<pid>", methods=["POST", "GET"])
 def render_product(category, pid):
     #try:
