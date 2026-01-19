@@ -3,7 +3,7 @@ from flask import Flask, render_template, make_response, request, redirect, flas
 from flask_socketio import SocketIO, emit, join_room, leave_room, send
 from flask_login import LoginManager, current_user, login_required, login_user, logout_user
 
-from data.user.User import User
+from data.user.User import User, register_new_user, get_id_from_email
 from data.catalog.catalog import get_all_category, Product, get_id_for_product
 from config.names import catalog_name
 
@@ -20,6 +20,7 @@ def load_user(user_id):
     return User(user_id)
 
 
+
 @app.route("/", methods=["POST", "GET"])
 def main():
     return render_template("main.html")
@@ -27,29 +28,59 @@ def main():
 @app.route("/profile", methods=["POST", "GET"])
 @login_required
 def profile():
-    return render_template("auth/profile.html")
+    return render_template("auth/profile.html", username = current_user.first_name)
 
-@app.route("/register", methods=["POST", "GET"])
-def register():
-    if(request.method == "GET"):
+@app.route("/register", methods=["POST"])
+def register_post():
+    first_name = request.form.get("firstname")
+    last_name = request.form.get("lastname")
+    email = request.form.get("email")
+    password = request.form.get("password")
+    repassword = request.form.get("repassword")
+    if password == repassword:
+        if register_new_user(first_name, last_name, email, password):
+            user = User(email)
+            login_user(user)
+            return redirect('/profile')
+        else:
+            return redirect('/login?error=alreadyindb')
+    else:
+        return redirect('/register?error=passwordisincorrect')
+
+
+@app.route("/register", methods=["GET"])
+def register_get():
+    if current_user.is_authenticated:
+        return redirect(url_for('profile'))
+    else:
         return render_template("auth/register.html")
-    else:
-        if request.is_json:
-            data = request.json
-            print(data)
 
-@app.route("/login", methods=["POST", "GET"])
-def auth():
-    if(request.method == "GET"):
-        return render_template("auth/login.html")
+@app.route("/login", methods=["POST"])
+def login_post():
+    try:
+        email = request.form.get("email")
+        id = get_id_from_email(email)
+        password = request.form.get("password")
+        user = User(id)
+        if user.check_password(password):
+            login_user(user)
+            return redirect('/profile')
+        else:
+            return redirect('/login?error=dataisincorrect')
+    except:
+        print('=====================Произошла ошибка')
+        return redirect('/login?error=dataisincorrect')
+
+@app.route("/login", methods=["GET"])
+def login_get():
+    if current_user.is_authenticated:
+        return redirect(url_for('profile'))
     else:
-        if request.is_json:
-            data = request.json
-            print(data)
+        return render_template("auth/login.html")
 
 @app.errorhandler(401)
 def error_handler(error):
-    return redirect(url_for('login'))
+    return redirect(url_for('login_get'))
 
 @app.route("/catalog/<category>/<pid>", methods=["POST", "GET"])
 def render_product(category, pid):

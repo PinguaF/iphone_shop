@@ -92,3 +92,28 @@ input[type="submit"]:hover{
     opacity: 0.3;
     cursor: url('/static/images/icons/cursor-pointer.svg'), pointer;
 }
+
+.error-message{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 400px;
+    flex-direction: row;
+    font-size: 1.5rem;
+    border: 1px solid #2222281b;
+    border-radius: 0.8rem;
+    padding: 16px;
+    margin: auto;
+    margin-top: 16px;
+    background-color: #ff3b30;
+    color: #FFFFFF;
+}
+.error-message p{
+    font-size: 16px;
+}
+.error-message svg{
+    margin-right: 10px;
+    aspect-ratio: 1 / 1;
+    height: 36px;
+    width: 36px;
+}

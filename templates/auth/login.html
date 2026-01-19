@@ -3,8 +3,9 @@
 {% block title %}Вход{% endblock %}
 {% block body %}
 <link rel="stylesheet" href="/static/auth.css">
+<script src="/static/scripts/auth/erorrhandler.js"></script>
 
-<form action="" method="get" class="form">
+<form action="" class="form" method="post">
     <div class="form-label">
         <img src="/static/images/icons/image-placeholder.svg">
         <h1>Вход</h1>
@@ -18,7 +19,7 @@
         <input type="password" name="password" id="password" required placeholder="coolpassword" />
     </div>
     <div class="form-block">
-        <input type="submit" value="Регистрация" />
+        <input type="submit" value="Вход" formmethod="post" />
     </div>
     <div class="form-block">
         <p>Нет аккаунта? <a href="/register">Регистрация</a></p>

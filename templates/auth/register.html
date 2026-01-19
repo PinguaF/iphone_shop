@@ -3,8 +3,9 @@
 {% block title %}Регистрация{% endblock %}
 {% block body %}
 <link rel="stylesheet" href="/static/auth.css">
+<script src="/static/scripts/auth/erorrhandler.js"></script>
 
-<form action="" method="get" class="form">
+<form action="" class="form" method="post">
     <div class="form-label">
         <img src="/static/images/icons/image-placeholder.svg">
         <h1>Регистрация</h1>
@@ -14,8 +15,8 @@
         <input type="text" name="firstname" id="firstname" required placeholder="Name" />
     </div>
     <div class="form-block">
-        <label for="surname">Фамилия</label>
-        <input type="text" name="surname" id="surname" required placeholder="Surname" />
+        <label for="lastname">Фамилия</label>
+        <input type="text" name="lastname" id="lastname" required placeholder="Surname" />
     </div>
     <div class="form-block">
         <label for="email">Почта</label>
@@ -30,7 +31,7 @@
         <input type="password" name="repassword" id="repassword" required placeholder="coolpassword" />
     </div>
     <div class="form-block">
-        <input type="submit" value="Регистрация" />
+        <input type="submit" value="Регистрация" formmethod="post" />
     </div>
     <div class="form-block">
         <p>Есть аккаунт? <a href="/login">Войти</a></p>
