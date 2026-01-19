@@ -28,7 +28,8 @@ def main():
 @app.route("/profile", methods=["POST", "GET"])
 @login_required
 def profile():
-    return render_template("auth/profile.html", username = current_user.first_name)
+    return render_template("auth/profile.html", first_name=current_user.first_name, last_name=current_user.last_name,
+                           email=current_user.email, id=current_user.id)
 
 @app.route("/register", methods=["POST"])
 def register_post():
@@ -77,6 +78,11 @@ def login_get():
         return redirect(url_for('profile'))
     else:
         return render_template("auth/login.html")
+    
+@app.route("/logout", methods=["GET", "POST"])
+def logout():
+    logout_user()
+    return redirect('/')
 
 @app.errorhandler(401)
 def error_handler(error):
