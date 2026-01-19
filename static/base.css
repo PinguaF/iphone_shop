@@ -3,6 +3,7 @@ html, body{
     padding: 0;
     font-family: SFUIDISPLAY;
     font-weight: bold;
+    cursor: url('/static/images/icons/cursor-arrow.svg'), auto;
 }
 *, *::before, *::after {
   box-sizing: border-box;
@@ -23,7 +24,7 @@ button{
     border: 0;
 }
 button:hover{
-    cursor: pointer;
+    cursor: url('/static/images/icons/cursor-pointer.svg'), pointer;
     opacity: 0.3;
 }
 
@@ -39,6 +40,7 @@ button:hover{
   font-weight: bold;
   font-style: normal;
 }
+
 
 .top-header{
     height: 50px;
@@ -74,7 +76,7 @@ button:hover{
     justify-content: space-around;
 }
 .logo:hover{
-    cursor: pointer;
+    cursor: url('/static/images/icons/cursor-pointer.svg'), pointer;
 }
 .logo h1{
     font-size: 2rem;
@@ -131,6 +133,7 @@ button:hover{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    background-color: #FFFFFF;
 }
 .catalogs-line a{
     text-decoration: none;
@@ -144,6 +147,7 @@ button:hover{
     text-decoration-style: solid;
     text-decoration-color: #0071e3;
     text-decoration-thickness: 4px;
+    cursor: url('/static/images/icons/cursor-pointer.svg'), pointer;
 }
 
 .footer{
@@ -170,7 +174,7 @@ button:hover{
 }
 .template-body{
     padding: 2rem;
-    max-width: 1920px;
+    max-width: 1440px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -207,7 +211,7 @@ button:hover{
     right: 1rem;
 }
 .js-button-to-page{
-    cursor: pointer;
+    cursor: url('/static/images/icons/cursor-pointer.svg'), pointer;
 }
 
 
@@ -279,7 +283,7 @@ button:hover{
     content: "•";
 }
 .top-location a:hover{
-    cursor: pointer;
+    cursor: url('/static/images/icons/cursor-pointer.svg'), pointer;
     opacity: 1;
 }
 
@@ -417,7 +421,7 @@ button:hover{
     transition: opacity 0.3s;
 }
 .add-to-cart:hover{
-    cursor: pointer;
+    cursor: url('/static/images/icons/cursor-pointer.svg'), pointer;
     opacity: 0.3;
 }
 .cart-no-availability{
@@ -436,7 +440,7 @@ button:hover{
     cursor: not-allowed;
 }
 .js-category{
-    cursor: pointer;
+    cursor: url('/static/images/icons/cursor-pointer.svg'), pointer;
 }
 .category-choose{
     position: sticky;
@@ -453,7 +457,7 @@ button:hover{
     transition: opacity 0.3s;
 }
 .category-choose p:hover{
-    cursor: pointer;
+    cursor: url('/static/images/icons/cursor-pointer.svg'), pointer;
     opacity: 1;
 }
 .category-choose p::before{
@@ -463,18 +467,5 @@ button:hover{
     opacity: 1 !important;
 }
 
-form{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    max-width: 100%;
-    flex-direction: column;
-    font-size: 1.5rem;
-}
-.form-block{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-}
+
 

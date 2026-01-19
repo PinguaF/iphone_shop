@@ -31,15 +31,25 @@ def profile():
 
 @app.route("/register", methods=["POST", "GET"])
 def register():
-    return render_template("auth/register.html")
+    if(request.method == "GET"):
+        return render_template("auth/register.html")
+    else:
+        if request.is_json:
+            data = request.json
+            print(data)
 
-@app.route("/auth", methods=["POST", "GET"])
+@app.route("/login", methods=["POST", "GET"])
 def auth():
-    return render_template("auth/auth.html")
+    if(request.method == "GET"):
+        return render_template("auth/login.html")
+    else:
+        if request.is_json:
+            data = request.json
+            print(data)
 
 @app.errorhandler(401)
 def error_handler(error):
-    return redirect(url_for('register'))
+    return redirect(url_for('login'))
 
 @app.route("/catalog/<category>/<pid>", methods=["POST", "GET"])
 def render_product(category, pid):
