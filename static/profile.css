@@ -1,9 +1,9 @@
 .profile{
+    margin-top: 10px;
     display: grid;
     grid-template-columns: 1fr 3fr;
     gap: 10px;
     grid-template-areas: 
-    "profile-side-menu profile-block"
     "profile-side-menu profile-block";
 }
 .profile-side-menu{
@@ -16,12 +16,14 @@
     border-radius: 0.8rem;
     padding-top: 10px;
     padding-bottom: 10px;
+    max-height: 300px;
 }
 .profile-side-menu a{
-    font-size: 20px;
+    font-size: 24px;
     margin-top: 10px;
     margin-bottom: 10px;
     text-decoration: none;
+    color: black;
 }
 .profile-block{
     grid-area: profile-block;
@@ -62,4 +64,44 @@
 }
 .warning-color{
     color: #ff3b30;
+}
+.order{
+    border: 1px solid #2222281b;
+    border-radius: 0.8rem;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: grid;
+    height: 150px;
+    gap:  10px;
+    grid-template-areas: 
+    "img name price"
+    "img type ."
+    "img button button";
+    grid-template-columns: 110px auto auto;
+    font-size: 20px;
+}
+.img-status{
+    grid-area: img;
+    height: 110px;
+    width: 110px;
+    padding: 5px;
+    border-radius: 0.8rem;
+}
+.img-status svg{
+    height: 100px;
+    width: 100px;
+}
+.order-name{
+    grid-area: name;
+}
+.order-price{
+    grid-area: price;
+    text-align: right;
+}
+.order-type{
+    grid-area: type;
+}
+.view-order{
+    grid-area: button;
+    font-size: 20px;
 }

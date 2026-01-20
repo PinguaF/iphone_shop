@@ -29,6 +29,12 @@ def main():
 @login_required
 def profile():
     return render_template("auth/profile.html", first_name=current_user.first_name, last_name=current_user.last_name,
+                           email=current_user.email, id=current_user.id, phone=current_user.phone, address=current_user.address)
+
+@app.route("/orders", methods=["POST", "GET"])
+@login_required
+def orders():
+    return render_template("auth/orders.html", first_name=current_user.first_name, last_name=current_user.last_name,
                            email=current_user.email, id=current_user.id)
 
 @app.route("/register", methods=["POST"])
@@ -40,7 +46,8 @@ def register_post():
     repassword = request.form.get("repassword")
     if password == repassword:
         if register_new_user(first_name, last_name, email, password):
-            user = User(email)
+            id = get_id_from_email(email)
+            user = User(id)
             login_user(user)
             return redirect('/profile')
         else:

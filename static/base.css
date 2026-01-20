@@ -13,10 +13,13 @@ h1, h2, h3, h4, h5, h6, p{
     padding: 0;
     font-family: SFUIDISPLAY;
 }
+a:hover{
+    cursor: url('/static/images/icons/cursor-pointer.svg'), pointer;
+}
 button{
     font-weight: 600;
-    font-size: 1.5rem;
-    border-radius: 50rem;
+    font-size: 16px;
+    border-radius: 0.8rem;
     height: 3.25rem;
     padding: 0.2rem 2rem 0.2rem 2rem;
     transition: opacity 0.3s;

@@ -7,13 +7,14 @@ def register_new_user(first_name, last_name, email, password):
     with sqlite3.connect("data/user/users.db") as db:
         cursor = db.cursor()
         cursor.execute(f"""SELECT * FROM `main` WHERE `email` == '{email}';""")
-        llist = cursor.fetchall()[0]
+        llist = cursor.fetchall()
         print(llist)
         if llist:
             return False
         else:
             cursor = db.cursor()
-            cursor.execute(f"""INSERT INTO `main` VALUES ('{userid}', '{first_name}', '{last_name}', '{email}', '{password_hash}');""")
+            cursor.execute(f"""INSERT INTO `main` (`id`, `first_name`, `last_name`, `email`, `password_hash`) 
+                           VALUES ('{userid}', '{first_name}', '{last_name}', '{email}', '{password_hash}');""")
             return True
 
 class User(UserMixin):
@@ -27,6 +28,8 @@ class User(UserMixin):
             self.last_name = llist[2]
             self.email = llist[3]
             self.password_hash = llist[4]
+            self.address = llist[5]
+            self.phone = llist[6]
 
     def check_password(self, password):
         new_hash = generate_password_hash(password)
