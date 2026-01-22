@@ -102,6 +102,12 @@ hr{
         "pimg pinfo pbuy"
         "pchar pchar .";
     }
+    .cart-grid{
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas: 
+        "cart-list cart-side";
+    }
+    
 }
 @media (min-width: 700px) and (max-width: 1200px) {
     /* 700-1200px */
@@ -114,6 +120,11 @@ hr{
         "pimg pbuy"
         "pinfo pinfo"
         "pchar pchar";
+    }
+    .cart-grid{
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas: 
+        "cart-list cart-side";
     }
 }
 @media (max-width: 700px) {
@@ -128,4 +139,83 @@ hr{
         "pbuy"
         "pchar";
     }
+    .cart-grid{
+        grid-template-areas: 
+        "cart-list"
+        "cart-side";
+    }
+}
+
+.cart-grid{
+    width: 100%;
+    display: grid;
+    gap: 1rem;
+}
+.cart-item{
+    display: grid;
+    grid-template-areas: 
+    "cart-item-img item-name item-name counter item-price"
+    "cart-item-img item-desc item-desc item-desc item-desc   ";
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+    padding: 1rem;
+    padding: 1rem;
+    border: 1px solid #2222281b;
+    border-radius: 0.8rem;
+    margin-bottom: 1rem;
+}
+.cart-list{
+    grid-area: cart-list;
+}
+.cart-side{
+    grid-area: cart-side;
+    padding: 1rem;
+    border: 1px solid #2222281b;
+    border-radius: 0.8rem;
+}
+.counter{
+    grid-area: counter;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid #2222281b;
+    border-radius: 100rem;
+    overflow: hidden;
+    width: 10rem;
+    height: 3rem;
+    background-color: #16171b;
+    color: #FFFFFF;
+    font-size: 1.5rem;
+}
+.js-counter-minus, .js-counter-plus{
+    font-size: 1.5rem;
+}
+.js-counter-minus:hover, .js-counter-plus:hover{
+    cursor: url('/static/images/icons/cursor-pointer.svg'), pointer;
+}
+
+.cart-item-img{
+    grid-area: cart-item-img;
+    max-width: 100%;
+    overflow: hidden;
+}
+.cart-item h1{
+    grid-area: item-name;
+    font-weight: 600;
+    text-align: left;
+    font-size: 1.5rem;
+}
+.cart-item h2{
+    grid-area: item-price;
+    font-weight: 600;
+    text-align: right;
+    font-size: 1.5rem;
+}
+.cart-item h3{
+    grid-area: item-desc;
+    font-weight: 600;
+    text-align: left;
+    font-size: 1rem;
+    color: #222228;
+    opacity: 0.48;
 }

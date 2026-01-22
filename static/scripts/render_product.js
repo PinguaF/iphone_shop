@@ -3,8 +3,10 @@ console.log($('.js-ninja-info').text())
 $( document ).ready(function(){
 
     var plist = JSON.parse(String($('.js-ninja-info').text()).replaceAll(`'`,'"')) || {}
-    console.log(plist)
     var category_list = []
+
+    var url = location.href
+    const url_category = url.split('/').pop();
 
     function render_grid(category = null){
         if (!category) {
@@ -28,13 +30,13 @@ $( document ).ready(function(){
                     <div class="name">
                     <p>${plist[product][2]}, ${plist[product][4]}, ${plist[product][3]}</p>
                     </div>
-                    <button class="add-to-cart">В корзину</button>
+                    <button class="add-to-cart" pid="${plist[product][0]}" category="${plist[product][2]}">В корзину</button>
                     </div>`)}
         } else {
             var counter = 0
             $('.catalog-grid').empty()
             for(var product in plist){
-            if(plist[product][2]==category){
+                if(plist[product][2]==category){
                 counter ++;
                 $('.catalog-grid').append(
                     `<div class="product" pid="${plist[product][0]}">
@@ -51,19 +53,23 @@ $( document ).ready(function(){
                     <div class="name">
                     <p>${plist[product][2]}, ${plist[product][4]}, ${plist[product][3]}</p>
                     </div>
-                    <button class="add-to-cart">В корзину</button>
+                        <button class="add-to-cart" pid="${plist[product][0]}">В корзину</button>
                     </div>`)
-                $('.category-count').text(counter)
+                $('.category-count').text(counter)}
             }
-        }}
+        }
 
         $('img').on('error', function() {
             console.log('Ошибка при загрузке изображения:', $(this).attr('src'));
             $(this).attr('src', '/static/images/icons/image-placeholder.svg');
         })
 
-        $('.product').on('click', function(){
-            window.location.href = String(location.href+'/'+$(this).attr('pid'))
+        $('.product img').on('click', function(){
+            window.location.href = String(location.href+'/'+$(this).parent('.product').attr('pid'))
+        })
+
+        $('.add-to-cart').click(function(){
+                add_to_cart($(this).attr('pid'), url_category)
         })
     }
     render_grid()

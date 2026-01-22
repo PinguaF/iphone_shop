@@ -1,4 +1,4 @@
-import sqlite3, hashlib, uuid
+import sqlite3, hashlib, uuid, json
 from flask_login import UserMixin
 
 def register_new_user(first_name, last_name, email, password):
@@ -13,8 +13,8 @@ def register_new_user(first_name, last_name, email, password):
             return False
         else:
             cursor = db.cursor()
-            cursor.execute(f"""INSERT INTO `main` (`id`, `first_name`, `last_name`, `email`, `password_hash`) 
-                           VALUES ('{userid}', '{first_name}', '{last_name}', '{email}', '{password_hash}');""")
+            cursor.execute(f"""INSERT INTO `main` (`id`, `first_name`, `last_name`, `email`, `password_hash`, `cart`) 
+                           VALUES ('{userid}', '{first_name}', '{last_name}', '{email}', '{password_hash}', '{""}');""")
             return True
 
 class User(UserMixin):
@@ -30,12 +30,21 @@ class User(UserMixin):
             self.password_hash = llist[4]
             self.address = llist[5]
             self.phone = llist[6]
+            self.cart = json.loads(llist[7])
 
     def check_password(self, password):
         new_hash = generate_password_hash(password)
         if self.password_hash == new_hash:
             return True
         return False
+    
+    def set_cart(self, cart):
+        with sqlite3.connect("data/user/users.db") as db:
+            cursor = db.cursor()
+            cursor.execute(f"""UPDATE `main` SET `cart`='{json.dumps(cart)}' WHERE `id` == '{self.id}';""")
+            llist = cursor.fetchall()
+        self.cart = cart
+        return True
 
     def get_id(self):
         return self.id
