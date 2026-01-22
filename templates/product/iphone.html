@@ -16,7 +16,7 @@
     </section>
     <section class="pinfo">
         <h1>Телефон Apple {{line}}, {{memory}}, {{color}}</h1>
-        <p>Арт. 00000000</p>
+        <p>Арт. {{id}}</p>
         <hr>
         <div class="prop-item">
             <div class="prop-item-title"><h2>Цвет</h2></div>
@@ -49,7 +49,7 @@
             <p>Цена</p>
             <h1>{{price}} BYN</h1>
         </div>
-        <button class="add-to-cart">Купить</button>
+        <button class="add-to-cart" pid="{{id}}" category="iphone">Купить</button>
             <div class="availability">
                 <svg class="icon-in-availability" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M15.142 9.98299L10.875 14.25L9.42049 12.7955M12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3Z" stroke="#48dc6c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -140,7 +140,7 @@
         <hr>
     </section>
 </main>
-
+<script src="/static/scripts/cart/addtocart.js"></script>
 
 
 

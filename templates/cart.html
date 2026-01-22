@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Корзина{% endblock %}
+
+{% block body %}
+{% if cart is defined and cart %}
+<section class="cart-grid">
+    
+    <div class="cart-list">
+        {% for category in cart %}
+            {% if category == "iphone" %}
+                {% for i in cart[category] %}
+                    <div class="cart-item">
+                        <img class="cart-item-img" src="/static/images/products/{{cart[category][i]['photo']}}.png">
+                        <h1>{{cart[category][i]['line']}}, {{cart[category][i]['memory']}}, {{cart[category][i]['color']}}</h1>
+                        <h3>Арт. {{i}}</h3>
+                        <h2>{{cart[category][i]['end_price']}}</h2>
+                        <nav class="counter">
+                            <p class="js-counter-minus" pid="{{i}}" category="{{category}}">-</p>
+                            <p>{{cart[category][i]['count']}}</p>
+                            <p class="js-counter-plus" pid="{{i}}" category="{{category}}">+</p>
+                        </nav>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+    </div>
+    
+    <div class="cart-side">
+        {{end_price}}
+        <button class="make-order">Заказ</button>
+    </div>
+        
+</section>
+{% else %}
+    <h1>Корзина пуста</h1>
+{% endif %}
+<script src="/static/scripts/cart/addtocart.js"></script>
+{% endblock %}

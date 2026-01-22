@@ -21,4 +21,10 @@ $( document ).ready(function(){
         document.body.style.overflow = 'scroll';
         $('.side-menu').fadeOut(500)
     })
+    $('.js-to-profile').click(function(){
+        window.location.href = String('http://'+location.host+'/profile')
+    })
+    $('.js-to-cart').click(function(){
+        window.location.href = String('http://'+location.host+'/cart')
+    })
 })

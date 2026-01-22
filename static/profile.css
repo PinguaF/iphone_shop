@@ -1,0 +1,107 @@
+.profile{
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 10px;
+    grid-template-areas: 
+    "profile-side-menu profile-block";
+}
+.profile-side-menu{
+    grid-area: profile-side-menu;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px solid #2222281b;
+    border-radius: 0.8rem;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    max-height: 300px;
+}
+.profile-side-menu a{
+    font-size: 24px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: black;
+}
+.profile-block{
+    grid-area: profile-block;
+    border: 1px solid #2222281b;
+    border-radius: 0.8rem;
+    padding: 20px;
+}
+.profile-parametr{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.profile-parametr h1{
+    font-size:  20px;
+}
+.profile-parametr button{
+    width: 50%;
+}
+.profile input{
+    height: 56px;
+    font-size: 16px;
+    margin-bottom: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
+    width: 50%;
+    border: 0;
+    border: 1px solid #2222281b;
+    border-radius: 8px;
+}
+.delete-acount{
+    color: #FFFFFF;
+    background-color: #ff3b30;
+}
+.save-changes{
+    background-color: #0071e3;
+    color: #FFFFFF;
+}
+.warning-color{
+    color: #ff3b30;
+}
+.order{
+    border: 1px solid #2222281b;
+    border-radius: 0.8rem;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: grid;
+    height: 150px;
+    gap:  10px;
+    grid-template-areas: 
+    "img name price"
+    "img type ."
+    "img button button";
+    grid-template-columns: 110px auto auto;
+    font-size: 20px;
+}
+.img-status{
+    grid-area: img;
+    height: 110px;
+    width: 110px;
+    padding: 5px;
+    border-radius: 0.8rem;
+}
+.img-status svg{
+    height: 100px;
+    width: 100px;
+}
+.order-name{
+    grid-area: name;
+}
+.order-price{
+    grid-area: price;
+    text-align: right;
+}
+.order-type{
+    grid-area: type;
+}
+.view-order{
+    grid-area: button;
+    font-size: 20px;
+}

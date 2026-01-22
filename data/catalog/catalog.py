@@ -44,6 +44,22 @@ def get_id_for_product(category, line, color, memory):
         id = cursor.fetchall()[0][0]
         return id
 
+def transform_order(order):
+    result = dict()
+    order_price = 0
+    for cat in order:
+        if order[cat]:
+            result[cat] = {}
+        for id in order[cat]:
+            product = Product(id, cat)
+            end_price = round(int(order[cat][id]['count'])*float(product.price.replace(' ', '')), 2)
+            order_price += end_price
+            if cat == "iphone":
+                result['iphone'][id] = {'count': order[cat][id]['count'], 'line':product.line, 
+                                        'color':product.color, 'memory':product.memory,
+                                        'price':product.price, 'end_price':end_price,
+                                        'photo':product.photo}
+    return result, round(order_price, 2)
 
 def convert_to_set(parametr_tuple):
     result = list()

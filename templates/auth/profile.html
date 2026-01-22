@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Профиль{% endblock %}
+{% block body %}
+<link rel="stylesheet" href="/static/profile.css">
+<h1>Профиль</h1>
+
+<section class="profile">
+
+    <div class="profile-side-menu">
+        <a href="/profile">Профиль</a>
+        <a href="/orders">Заказы</a>
+        <a href="mailto:your-email@example.com">Связь с поддержкой</a>
+    </div>
+
+    <section class="profile-block">
+        <div class="profile-parametr">
+            <h1>Имя</h1>
+            <input value="{{first_name}}">
+        </div>
+        <div class="profile-parametr">
+            <h1>Фамилия</h1>
+            <input value="{{last_name}}">
+        </div>
+        <div class="profile-parametr">
+            <h1>Email</h1>
+            <input disabled value="{{email}}">
+        </div>
+        <div class="profile-parametr">
+            <h1>ID</h1>
+            <input disabled value="{{id}}">
+        </div>
+        <div class="profile-parametr">
+            <h1>Адрес</h1>
+            <input value="{{address}}" type="text">
+        </div>
+        <div class="profile-parametr">
+            <h1>Номер телефона</h1>
+            <input value="{{phone}}" type="tel">
+        </div>
+        <div class="profile-parametr">
+            <button onclick="window.location.href = '/logout';">Выйти</button>
+            <button class="save-changes">Сохранить изменения</button>
+        </div>
+        <div class="profile-parametr">
+            <h1 class="warning-color">Осторожно</h1>
+            <button class="delete-acount">Удалить аккаунт</button>
+        </div>
+    
+    </section>
+</section>
+
+{% endblock %}

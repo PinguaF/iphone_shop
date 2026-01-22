@@ -3,6 +3,7 @@ html, body{
     padding: 0;
     font-family: SFUIDISPLAY;
     font-weight: bold;
+    cursor: url('/static/images/icons/cursor-arrow.svg'), auto;
 }
 *, *::before, *::after {
   box-sizing: border-box;
@@ -12,10 +13,13 @@ h1, h2, h3, h4, h5, h6, p{
     padding: 0;
     font-family: SFUIDISPLAY;
 }
+a:hover{
+    cursor: url('/static/images/icons/cursor-pointer.svg'), pointer;
+}
 button{
     font-weight: 600;
-    font-size: 1.5rem;
-    border-radius: 50rem;
+    font-size: 16px;
+    border-radius: 0.8rem;
     height: 3.25rem;
     padding: 0.2rem 2rem 0.2rem 2rem;
     transition: opacity 0.3s;
@@ -23,7 +27,7 @@ button{
     border: 0;
 }
 button:hover{
-    cursor: pointer;
+    cursor: url('/static/images/icons/cursor-pointer.svg'), pointer;
     opacity: 0.3;
 }
 
@@ -39,6 +43,7 @@ button:hover{
   font-weight: bold;
   font-style: normal;
 }
+
 
 .top-header{
     height: 50px;
@@ -74,7 +79,7 @@ button:hover{
     justify-content: space-around;
 }
 .logo:hover{
-    cursor: pointer;
+    cursor: url('/static/images/icons/cursor-pointer.svg'), pointer;
 }
 .logo h1{
     font-size: 2rem;
@@ -131,6 +136,7 @@ button:hover{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    background-color: #FFFFFF;
 }
 .catalogs-line a{
     text-decoration: none;
@@ -144,6 +150,7 @@ button:hover{
     text-decoration-style: solid;
     text-decoration-color: #0071e3;
     text-decoration-thickness: 4px;
+    cursor: url('/static/images/icons/cursor-pointer.svg'), pointer;
 }
 
 .footer{
@@ -169,8 +176,9 @@ button:hover{
     width: 60rem;
 }
 .template-body{
+    min-height: 80vh;
     padding: 2rem;
-    max-width: 1920px;
+    max-width: 1440px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -207,7 +215,7 @@ button:hover{
     right: 1rem;
 }
 .js-button-to-page{
-    cursor: pointer;
+    cursor: url('/static/images/icons/cursor-pointer.svg'), pointer;
 }
 
 
@@ -279,7 +287,7 @@ button:hover{
     content: "•";
 }
 .top-location a:hover{
-    cursor: pointer;
+    cursor: url('/static/images/icons/cursor-pointer.svg'), pointer;
     opacity: 1;
 }
 
@@ -380,6 +388,9 @@ button:hover{
     aspect-ratio: 1 / 1;
     grid-area: image;
 }
+.product img:hover{
+    cursor: url('/static/images/icons/cursor-pointer.svg'), pointer;
+}
 .price{
     grid-area: price;
     font-size: 2rem;
@@ -417,7 +428,7 @@ button:hover{
     transition: opacity 0.3s;
 }
 .add-to-cart:hover{
-    cursor: pointer;
+    cursor: url('/static/images/icons/cursor-pointer.svg'), pointer;
     opacity: 0.3;
 }
 .cart-no-availability{
@@ -436,7 +447,7 @@ button:hover{
     cursor: not-allowed;
 }
 .js-category{
-    cursor: pointer;
+    cursor: url('/static/images/icons/cursor-pointer.svg'), pointer;
 }
 .category-choose{
     position: sticky;
@@ -453,7 +464,7 @@ button:hover{
     transition: opacity 0.3s;
 }
 .category-choose p:hover{
-    cursor: pointer;
+    cursor: url('/static/images/icons/cursor-pointer.svg'), pointer;
     opacity: 1;
 }
 .category-choose p::before{
