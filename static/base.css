@@ -176,6 +176,7 @@ button:hover{
     width: 60rem;
 }
 .template-body{
+    min-height: 80vh;
     padding: 2rem;
     max-width: 1440px;
     margin-left: auto;
@@ -386,6 +387,9 @@ button:hover{
     width: 100%;
     aspect-ratio: 1 / 1;
     grid-area: image;
+}
+.product img:hover{
+    cursor: url('/static/images/icons/cursor-pointer.svg'), pointer;
 }
 .price{
     grid-area: price;

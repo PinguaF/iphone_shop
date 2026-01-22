@@ -8,6 +8,8 @@ $( document ).ready(function(){
         var msg = 'Ошибка! Пароли не совпадают '
     } else if(error == 'dataisincorrect'){
         var msg = 'Ошибка! Неверный логин или пароль'
+    } else if(error == 'carterror'){
+        var msg = 'Ошибка! Авторизуйтесь для добавления товара в корзину'
     }
     $('.template-body').append(`
         <div class='error-message'>
